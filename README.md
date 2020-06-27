@@ -1,5 +1,9 @@
 # Developing Bitazza assignment app
 
+### Link to the demo video.
+
+[![Here's demo video.](https://img.youtube.com/vi/pIVnH6L-P30/0.jpg)](https://youtu.be/pIVnH6L-P30)
+
 # Getting started
 
 ## Setting Up the Environment and tools needed
@@ -47,4 +51,59 @@ npm install
 ```bash
 cd client
 yarn install
+```
+
+### Add an .env file in the server folder with the following
+
+```
+NODE_ENV=development
+MONGODB_URI=mongodb://localhost/Bitazza
+SERVER_PORT=8000
+```
+
+### Add an .env file in the client folder with the following
+
+```
+REACT_APP_WS_ENDPOINT=wss://apexapi.bitazza.com/WSGateway
+REACT_APP_API=http://localhost:8000/api
+REACT_APP_AUTH_KEY=X-Auth-Token-Msg
+REACT_APP_AUTH_VALUE=bIt@zza-@ss|gnmEnt
+```
+
+## How to run the project
+
+To test your Party Haan app on the web, execute the following command to run the web app on your local machine:
+
+Server
+
+```bash
+cd server
+npm start
+```
+
+Client
+
+```bash
+cd client
+yarn start
+```
+
+## API Health Checks
+
+#### Example 1 Health check endpint
+
+Health checks provide a simple mechanism to determine whether a server-side application is behaving properly. They're typically consumed over HTTP and use standard return codes to indicate UP or DOWN status as well as the number of seconds the current Node.js process has been running. In short, server can respond to requests with the health of the service.
+
+```
+    GET /health HTTP/1.1
+
+    http://localhost:8000/api/health
+```
+
+#### Example 2 Core service tracking performance usage of Node.js app
+
+```
+    GET /usage HTTP/1.1
+
+    http://localhost:8000/api/usage
 ```
